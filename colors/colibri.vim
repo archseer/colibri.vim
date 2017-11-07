@@ -172,7 +172,7 @@ call s:HL('Special', 'special', '', 'none')
 
 " next up, comments
 call s:HL("Comment", 'comment', '', '')
-"SpecialComment
+call s:HL("SpecialComment", 'comment', '', 'reverse')
 call s:HL("Todo", 'warning', "window", "italic")
 call s:HL('Error', 'error', 'window')
 
