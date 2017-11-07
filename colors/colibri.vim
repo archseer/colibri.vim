@@ -1,4 +1,4 @@
-" Vim color file
+" colibri.vim color theme
 " Author: Blaž Hrastnik
 "
 " Note:
