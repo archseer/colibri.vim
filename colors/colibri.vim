@@ -222,8 +222,8 @@ call s:HL("Structure", 'proper', '', '')
 
 " Ruby
 call s:HL("rubySymbol", 'punct', '', '')
-" same as constant
-hi! link rubyConstant Constant
+" apparently not the same as constant? (module/class name)
+call s:HL("rubyConstant", 'proper', '', '')
 call s:HL("rubyStringDelimiter", 'string', '', 'italic')
 call s:HL("rubyIdentifier", 'proper', '', '')
 
