@@ -1,6 +1,6 @@
 # colibri
 
-![Screenshot](screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/archSeer/colibri.vim/master/screenshot.png)
 
 A subtle colorscheme for Vim.
 
