@@ -28,6 +28,10 @@ I use the complement green for constants to introduce some contrast, especially
 for elixir/ruby symbols (I think it could be a bit subtler, but that's the best
 complement green I found after 10-20 iterations).
 
+I was using/working on this color scheme for a while from my dotfiles
+repository, you can see a [fuller commit history
+here](https://github.com/archSeer/dotfiles/commits/77758f6675381ec5123438b385700a8ba11fb33c/vim/colors/colibri.vim).
+
 ## Installation
 
 ```vim
