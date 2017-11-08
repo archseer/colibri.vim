@@ -7,7 +7,8 @@
 
 hi clear
 if exists("syntax_on") | syntax reset | endif
-set background=dark
+"set background=dark
+let s:is_dark=(&background == 'dark')
 let g:colors_name = "colibri"
 
 " colibri Colorscheme for GUI
@@ -21,6 +22,7 @@ let s:colibri = {}
 " base shades
 let s:colibri.white     = ["#FFFFFF", 231]
 let s:colibri.lilac     = ["#dbbfef", 183]
+let s:colibri.white_lilac = ["#ebeafa", 0] "lilac at lightness 95 hsl(243.3, 61%, 95%)
 let s:colibri.lavender  = ["#a4a0e8", 146]
 let s:colibri.comet     = ["#5a5977", 60]
 let s:colibri.bossanova = ["#452859", 53]
@@ -35,14 +37,37 @@ let s:colibri.mint      = ["#9FF28F", 156] " 81EECF / 7FB998 / -- 5fe7b7
 " lilac
 let s:colibri.almond    = ["#ECCDBA", 223]
 let s:colibri.chamois   = ["#E8DCA0", 187]
-let s:colibri.honey     = ["#EFBA5D", 215]
+let s:colibri.honey     = ["#EFBA5D", 215] " alt: saturation is closer #DDB56F
 
-let s:colibri.foreground      = s:colibri.lavender
-let s:colibri.background_dark = s:colibri.revolver
-let s:colibri.background      = s:colibri.midnight
+if s:is_dark
+  let s:colibri.bg1 = s:colibri.revolver
+  let s:colibri.bg2 = s:colibri.midnight
+  let s:colibri.bg3 = s:colibri.bossanova
+  let s:colibri.fg1 = s:colibri.lavender
+  let s:colibri.fg2 = s:colibri.white
+  let s:colibri.fg3 = s:colibri.silver
+  let s:colibri.fg4 = s:colibri.sirocco
+else
+  let s:colibri.bg1 = s:colibri.bossanova
+  let s:colibri.bg2 = s:colibri.white_lilac
+  let s:colibri.bg3 = s:colibri.white
+  let s:colibri.fg1 = s:colibri.chamois
+  let s:colibri.fg2 = s:colibri.comet
+  let s:colibri.fg3 = s:colibri.lavender
+  let s:colibri.fg4 = s:colibri.silver
+
+  " flip the colors!
+  let s:colibri.almond = s:colibri.lavender
+  let s:colibri.chamois = s:colibri.lilac
+
+  let s:colibri.mint = ["#83DA74", 0]
+endif
+
+let s:colibri.foreground      = s:colibri.fg1
+let s:colibri.background_dark = s:colibri.bg1
+let s:colibri.background      = s:colibri.bg2
 "let s:colibri.background     = ["#311D40", 53] " HSB with B at 25 (instead of 30)
-"let s:colibri.background     = ["#ffffff", 231]
-let s:colibri.background_light = s:colibri.bossanova
+let s:colibri.background_light = s:colibri.bg3
 
 " ui tones
 let s:colibri.disabled = s:colibri.foreground
@@ -56,16 +81,16 @@ let s:colibri.highlight = ["#802F00", 88]
 let s:colibri.error    = ["#f47868", 209]
 let s:colibri.warning  = ["#ffcd1c", 220]
 
-let s:colibri.builtin  = s:colibri.white
-let s:colibri.string   = s:colibri.silver
-let s:colibri.proper   = s:colibri.white
+let s:colibri.builtin  = s:colibri.fg2
+let s:colibri.string   = s:colibri.fg3
+let s:colibri.proper   = s:colibri.fg2
 let s:colibri.constant = s:colibri.mint
-let s:colibri.bool     = s:colibri.white
-let s:colibri.func     = s:colibri.white
+let s:colibri.bool     = s:colibri.fg2
+let s:colibri.func     = s:colibri.fg2
 let s:colibri.punct    = s:colibri.lilac
 "let s:colibri.keyword  = ["#77B56B", 107]
 let s:colibri.keyword  = s:colibri.almond
-let s:colibri.comment  = s:colibri.sirocco
+let s:colibri.comment  = s:colibri.fg4
 let s:colibri.number   = s:colibri.chamois
 
 let s:colibri.special  = s:colibri.honey
@@ -136,7 +161,7 @@ call s:HL('VertSplit',    'window',     'window',          '')
 "call s:HL('Cursor',       'background', 'cursor',    'none') " vCursor, iCursor
 call s:HL('Visual',       '',           'highlight',       'none')
 
-call s:HL('Search',       'special',    'background_dark', 'inverse')
+call s:HL('Search',       'warning',    'background_dark', 'inverse')
 call s:HL('WildMenu',     'active',     'background',      'inverse')
 
 call s:HL("CursorLine",   '',           'window',          "none")
