@@ -216,6 +216,8 @@ call s:HL('DiffChanged', 'foreground', 'dblue',            '')
 " --> Syntax
 " start simple
 call s:HL('Special', 'special', '', 'none')
+"call s:HL('Delimiter', 'punct', '', '')
+call s:HL('ColibriInterpolationDelimiter', 'punct', '', '')
 
 " next up, comments
 call s:HL("Comment",        'comment', '',       '')
@@ -271,6 +273,7 @@ call s:HL("Structure",   'proper',   '', '')
 "call s:HL("rubySymbol", 'punct', '', '')
 " apparently not the same as constant? (module/class name)
 call s:HL("rubyConstant",                 'proper',  '', '')
+hi link rubyInterpolationDelimiter ColibriInterpolationDelimiter
 call s:HL("rubyStringDelimiter",          'string',  '', 'italic')
 call s:HL("rubyIdentifier",               'proper',  '', '')
 
@@ -278,7 +281,7 @@ call s:HL("rubyRailsMethod",              'proper',  '', '')
 
 " Elixir
 call s:HL('elixirStringDelimiter',        'string',  '', 'italic')
-call s:HL('elixirInterpolationDelimiter', 'punct',   '', '')
+hi link elixirInterpolationDelimiter ColibriInterpolationDelimiter
 
 " HTML
 call s:HL("htmlTag",                      'keyword', '', '')
