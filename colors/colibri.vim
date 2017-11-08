@@ -52,6 +52,12 @@ let s:colibri.number   = ["#E8DCA0", 187]
 
 let s:colibri.special  = ["#EFBA5D", 215]
 
+" Diff colors
+let s:colibri.diff_green  = ["#35BF86", 1]
+let s:colibri.diff_red  = ["#F22C86", 1]
+let s:colibri.diff_change = ["#69A0F3", 1]
+let s:colibri.dblue   = ["#3B0FBF", 1] " 2CD5F2
+
 "let s:colibri.foreground    = ["#ffffff", 231]
 "let s:colibri.builtin  = ["#a4a0e8", 146]
 "let s:colibri.proper   = ["#a4a0e8", 146]
@@ -112,6 +118,9 @@ call s:HL('VertSplit', 'window', 'window', '')
 "call s:HL('Cursor',       'background', 'cursor',    'none') " vCursor, iCursor
 call s:HL('Visual',       '',           'highlight', 'none')
 
+call s:HL('Search', 'special', 'background_dark', 'inverse')
+call s:HL('WildMenu', 'active', 'background', 'inverse')
+
 call s:HL("CursorLine", '', 'window', "none")
 call s:HL("CursorColumn", '', 'window', "none")
 call s:HL("ColorColumn", '', 'window', "none")
@@ -137,7 +146,8 @@ call s:HL("Title", 'foreground', '', "bold")
 
 call s:HL('ErrorMsg', 'error', 'none', 'bold')
 call s:HL('WarningMsg', 'warning', 'none')
-" TODO: ModeMsg, Question, MoreMsg
+call s:HL('MoreMsg', 'diff_green', 'none')
+" TODO: ModeMsg, Question
 
 " TODO: Tag
 
@@ -145,6 +155,8 @@ call s:HL('WarningMsg', 'warning', 'none')
 call s:HL('Pmenu',    'foreground', 'window', 'none')
 "call s:HL('Pmenu',    'active', 'linenr', 'none')
 call s:HL('PmenuSel', 'active', 'background_dark', 'none')
+call s:HL('PmenuSbar', '', 'background_dark')
+call s:HL('PmenuThumb', '', 'active')
 
 " Tildes below buffer
 call s:HL('NonText', 'window', '', 'none')
@@ -153,10 +165,6 @@ call s:HL('NonText', 'window', '', 'none')
 " TODO: SpecialKey
 
 " - Diffs
-let s:colibri.diff_green  = ["#35BF86", 1]
-let s:colibri.diff_red  = ["#F22C86", 1]
-let s:colibri.diff_change = ["#69A0F3", 1]
-let s:colibri.dblue   = ["#3B0FBF", 1] " 2CD5F2
 call s:HL('DiffAdd', 'diff_green', 'background_light', 'bold')
 call s:HL('DiffDelete', 'diff_red', 'background_light', '')
 call s:HL('DiffChange', 'foreground', 'dblue', '')
