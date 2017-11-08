@@ -293,8 +293,8 @@ call s:HL("htmlArg",                      'func',    '', '')
 call s:HL("htmlH1",                       'punct',   '', '')
 
 " YAJS
-call s:HL("javascriptImport",             'keyword', '', '')
-call s:HL('javascriptExport',             'keyword', '', '')
+hi link javascriptImport Keyword
+hi link javascriptExport Keywor
 call s:HL("javascriptIdentifier",         'proper',  '', '')
 call s:HL("javascriptIdentifierName",     'proper',  '', '')
 call s:HL("javascriptObjectLabel",        'punct',   '', '')
@@ -302,6 +302,19 @@ call s:HL("javascriptObjectLabel",        'punct',   '', '')
 " typescriptBraces
 "call s:HL('javascriptEndColons', 'foreground',  '', '')
 "call s:HL('typescriptEndColons', 'foreground',  '', '')
+"
+" For pangloss's highlighting (make 'var' and 'function' cyan like they used to be)
+" This should give us close to what we had before pangloss!
+
+hi link jsStorageClass Identifier
+hi link jsFunction Function
+hi link jsFuncName Identifier
+hi link jsFuncParens Normal
+"hi link jsFuncBraces Identifier
+"hi link jsParens Identifier
+"hi link jsBraces Identifier
+hi link Noise Identifier
+"hi link jsThis Type
 
 " YAML
 
