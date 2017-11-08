@@ -64,3 +64,9 @@ There is some support for a 256 color version, but the colors are much cruder.
 
 Contributors are welcome! There's still a lot of room for improvement, so any
 suggestions or patches are appreciated.
+
+## License
+
+Logo: Hummingbird by Lane F. Kinkade from the Noun Project.
+
+MIT © 2017 Blaž Hrastnik, [see the license](LICENSE).
