@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<head>
+  <meta charset="utf-8">
+  <title>colibri.vim</title>
+  <style type="text/css">
+    .c1 { background-color: #FFFFFF }
+    .c2 { background-color: #a4a0e8 }
+    .c3 { background-color: #281733 }
+    .c4 { background-color: #3b224c }
+    .c4.alt { background-color: #311D40 }
+    .c5 { background-color: #452859 }
+    .c6 { background-color: #dbbfef }
+    .c7 { background-color: #5a5977 }
+
+    .error { background-color: #f47868 }
+    .warning { background-color: #ffcd1c }
+
+    .highlight { background-color: #802F00 }
+    .highlight.alt { background-color: #00CCCC }
+
+    .g1 { background-color: #FFF }
+    .g2 { background-color: #ccc }
+    .g3 { background-color: #9FF28F }
+    .g3.alt.alt1 { background-color: #81CECF}
+    .g3.alt.alt2 { background-color: #7FB998}
+    .g3.alt.alt3 { background-color: #5fe7b7}
+    .g4 { background-color: #dbbfef }
+    .g5 { background-color: #ECCDBA }
+    .g6 { background-color: #697C81 }
+    .g7 { background-color: #E8DCA0 }
+    .g8 { background-color: #EFBA5D }
+
+    .diff1 { background: #35BF86 }
+    .diff2 { background: #F22C86 }
+    .diff3 { background: #69A0F3 }
+    .diff4 { background: #3B0FBF }
+
+
+    .title { font-weight: 400; text-align: center; font-size: 2rem; margin: 2rem }
+    h1 { font-weight: 300 }
+    section { display: flex; width: 100%; height: 200px; }
+    section > div {
+      flex: 2;
+      color: rgba(0,0,0,.35);
+      padding: 1rem;
+    }
+    .alt { flex: 1; margin: 1.5rem 1rem }
+    div span { font-size: .75rem; display: block; opacity: .75 }
+    .invert { color: rgba(255,255,255,.35)}
+  </style>
+</head>
+<body>
+
+  <div class="title">colibri.vim</div>
+
+  <h1>Shades</h1>
+  <section class="shades">
+    <div class="c1">white<span>fg1</span></div>
+    <div class="c6">lilac<span>fg3</span></div>
+    <div class="c2">lavender<span>fg2</span></div>
+    <div class="c7">comet<span>lineNr</span></div>
+    <div class="c5 invert">bossanova<span>bg1</span></div>
+    <div class="c4 invert">midnight<span>bg2</span></div>
+    <div class="c3 invert">revolver<span>bg3</span></div>
+  </section>
+
+  <h1>Syntax</h1>
+  <section class="syntax">
+    <div class="g1">white<span>booleans, functions, builtins, properties</span></div>
+    <div class="g2">silver<span>strings</span></div>
+    <div class="g6">sirocco<span>comments</span></div>
+  </section>
+  <section class="syntax">
+    <div class="g3">mint (complement 1)<span>keywords</span></div>
+    <div class="g4">lilac (complement 2)<span>constants</span></div>
+    <div class="g5">almond<span>keywords</span></div>
+    <div class="g7">chamois<span>numbers</span></div>
+    <div class="g8">honey<span>special</span></div>
+  </section>
+
+  <h1>Warnings</h1>
+  <section class="warnings">
+    <div class="error">apricot<span>error</span></div>
+    <div class="warning">lightning<span>warning</span></div>
+  </section>
+
+  <h1>Highlight</h1>
+  <section class="highlight">
+    <div class="highlight">cedar</div>
+    <div class="highlight alt">pacific</div>
+  </section>
+
+  <h1>Diff</h1>
+  <section class="diff">
+    <div class="diff1"><span>add</span></div>
+    <div class="diff2"><span>remove</span></div>
+    <div class="diff3"><span>change</span></div>
+    <div class="diff4"></div>
+  </section>
+
+  <h1>Alternatives (sandbox)</h1>
+  <section class="alts">
+    <div class="g3">mint</div>
+    <div class="g3 alt alt1">sinbad</div>
+    <div class="g3 alt alt2">tree</div>
+    <div class="g3 alt alt3">turqoise</div>
+  </section>
+</body>
