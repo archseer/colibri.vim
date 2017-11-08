@@ -2,7 +2,7 @@
 
 ![Screenshot](https://raw.githubusercontent.com/archSeer/colibri.vim/master/screenshot.png)
 
-A subtle colorscheme for Vim.
+A subtle colorscheme for Vim. You can [preview the color palette here](https://archseer.github.io/colibri.vim/swatch.html).
 
 I've always appreciated color schemes, but felt that they often
 add more visual clutter than I needed (using more than a few colors distracts my
