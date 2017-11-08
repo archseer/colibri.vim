@@ -239,6 +239,9 @@ call s:HL("htmlEndTag",  'keyword', '', '')
 call s:HL("htmlTagName", 'keyword', '', '')
 call s:HL("htmlArg",     'func', '', '')
 
+" Markdown
+call s:HL("htmlH1",     'punct', '', '')
+
 " YAJS
 call s:HL("javascriptImport", 'keyword', '', '')
 call s:HL('javascriptExport', 'keyword', '', '')
@@ -253,6 +256,8 @@ call s:HL("javascriptObjectLabel", 'punct', '', '')
 " YAML
 
 " CSS
+hi link cssVendor cssDefinition
+call s:HL("cssAttrComma", 'punct', '', '')
 
 " ALE integration
 call s:HL('ALEWarningSign', 'warning', '')
