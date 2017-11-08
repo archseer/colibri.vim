@@ -69,6 +69,8 @@ let s:colibri.background      = s:colibri.bg2
 "let s:colibri.background     = ["#311D40", 53] " HSB with B at 25 (instead of 30)
 let s:colibri.background_light = s:colibri.bg3
 
+let s:colibri.sign_column = s:colibri.bg2
+
 " ui tones
 let s:colibri.disabled = s:colibri.foreground
 let s:colibri.active   = s:colibri.lilac
@@ -100,12 +102,6 @@ let s:colibri.diff_green  = ["#35BF86", 1]
 let s:colibri.diff_red    = ["#F22C86", 1]
 let s:colibri.diff_change = ["#69A0F3", 1]
 let s:colibri.dblue       = ["#3B0FBF", 1] " 2CD5F2
-
-"let s:colibri.foreground  = ["#ffffff", 231]
-"let s:colibri.builtin  = ["#a4a0e8", 146]
-"let s:colibri.proper   = ["#a4a0e8", 146]
-"let s:colibri.bool     = ["#a4a0e8", 146]
-"let s:colibri.func     = ["#a4a0e8", 146]
 " }}}
 " Helpers: {{{
 
@@ -173,7 +169,7 @@ call s:HL("ColorColumn",  '',           'window',          "none")
 " - Gutter
 call s:HL("LineNr",     'linenr',  '',                 '')
 " CursorLineNr
-call s:HL('SignColumn', 'active',  'window',           'none')
+call s:HL('SignColumn', 'active',  'sign_column',      'none')
 call s:HL('FoldColumn', 'active',  'window',           'none')
 call s:HL('Folded',     'comment', 'background_light', 'none')
 
@@ -310,6 +306,25 @@ call s:HL("javascriptObjectLabel",        'punct',   '', '')
 hi link cssVendor cssDefinition
 call s:HL("cssAttrComma",                 'punct',   '', '')
 
+" --> Plugins
+
+call s:HL('ColibriAddSign',    'diff_green',  'sign_column')
+call s:HL('ColibriChangeSign', 'diff_change', 'sign_column')
+call s:HL('ColibriDeleteSign', 'diff_red',    'sign_column')
+
 " ALE integration
-call s:HL('ALEWarningSign',               'warning', '')
-call s:HL('ALEErrorSign',                 'error',   '')
+call s:HL('ALEWarningSign', 'warning', 'sign_column')
+call s:HL('ALEErrorSign',   'error',   'sign_column')
+" ALEInfoSign
+hi link SyntasticErrorSign AleErrorSign
+hi link SyntasticWarningSign AleWarningSign
+
+"vim-gitgutter
+hi link GitGutterAdd ColibriAddSign
+hi link GitGutterChange ColibriChangeSign
+hi link GitGutterDelete ColibriDeleteSign
+hi link GitGutterChangeDelete ColibriChangeSign
+" vim-signify
+hi link SignifyAdd ColibriAddSign
+hi link SignifyChange ColibriChangeSign
+hi link SignifyDelete ColibriDeleteSign
