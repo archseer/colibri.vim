@@ -11,12 +11,9 @@ set background=dark
 let s:is_dark=(&background == 'dark')
 let g:colors_name = "colibri"
 
-" colibri Colorscheme for GUI
-
 let s:colibri = {}
 
 " foreground #a4a0e8 (non active window) # play with complements, #9FF28F could be hsl(143.3, 61%, 76.9%) (complement derived from primary), hsl(343.3, 61%, 76.9%)
-" lighter foreground #dbbfef (active window)
 " #5a5977 neutral window tone
 
 " base shades
@@ -310,11 +307,7 @@ hi link jsStorageClass Identifier
 hi link jsFunction Function
 hi link jsFuncName Identifier
 hi link jsFuncParens Normal
-"hi link jsFuncBraces Identifier
-"hi link jsParens Identifier
-"hi link jsBraces Identifier
 hi link Noise Identifier
-"hi link jsThis Type
 
 " YAML
 
