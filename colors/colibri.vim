@@ -16,8 +16,9 @@ let s:colibri = {}
 
 " base shades
 let s:colibri.white     = ["#FFFFFF", 231]
+let s:colibri.white_lilac  = ["#f3f2fc", 0] "lilac at lightness 97% hsl(243.3, 61%, 97%)
+let s:colibri.white_lilac2 = ["#ebeafa", 0] "lilac at lightness 95% hsl(243.3, 61%, 95%)
 let s:colibri.lilac     = ["#dbbfef", 183]
-let s:colibri.white_lilac = ["#ebeafa", 0] "lilac at lightness 95 hsl(243.3, 61%, 95%)
 let s:colibri.lavender  = ["#a4a0e8", 146]
 let s:colibri.comet     = ["#5a5977", 60]
 let s:colibri.bossanova = ["#452859", 53]
@@ -67,9 +68,9 @@ else
   let s:colibri.chamois  = ["#e7d46f", 0]
 
   " set some shades
-  let s:colibri.bg1 = s:colibri.silver
+  let s:colibri.bg1 = s:colibri.white
   let s:colibri.bg2 = s:colibri.white_lilac
-  let s:colibri.bg3 = s:colibri.white
+  let s:colibri.bg3 = s:colibri.white_lilac2
   let s:colibri.fg1 = s:colibri.lavender
   let s:colibri.fg2 = s:colibri.midnight
   let s:colibri.fg3 = s:colibri.sirocco
@@ -119,8 +120,15 @@ let s:colibri.special  = s:colibri.honey
 " Diff colors
 let s:colibri.diff_green  = ["#35BF86", 1]
 let s:colibri.diff_red    = ["#F22C86", 1]
-let s:colibri.diff_change = ["#69A0F3", 1]
-let s:colibri.dblue       = ["#3B0FBF", 1] " 2CD5F2
+if s:is_dark
+  let s:colibri.diff_change = ["#69A0F3", 1]
+  let s:colibri.diff_change = ["#6F44F0", 1]
+  let s:colibri.dblue       = ["#3B0FBF", 1] " 2CD5F2
+else
+  "swap
+  let s:colibri.dblue = ["#6F44F0", 1]
+  let s:colibri.diff_change       = ["#3B0FBF", 1] " 2CD5F2
+endif
 " }}}
 " Helpers: {{{
 
@@ -187,7 +195,7 @@ call s:HL("ColorColumn",  '',           'window',          "none")
 
 " - Gutter
 call s:HL("LineNr",     'linenr',  '',                 '')
-" CursorLineNr
+call s:HL("CursorLineNr",'almond', '',                 '')
 call s:HL('SignColumn', 'active',  'sign_column',      'none')
 call s:HL('FoldColumn', 'active',  'window',           'none')
 call s:HL('Folded',     'comment', 'background_light', 'none')
@@ -205,9 +213,8 @@ call s:HL("Title",      'foreground', '',     "bold")
 call s:HL('ErrorMsg',   'error',      'none', 'bold')
 call s:HL('WarningMsg', 'warning',    'none')
 call s:HL('MoreMsg',    'diff_green', 'none')
-" TODO: ModeMsg, Question
-
-" TODO: Tag
+call s:HL('Question',   'diff_green', 'none')
+" TODO: ModeMsg
 
 " - Completion menu
 call s:HL('Pmenu',      'foreground', 'window',          'none')
@@ -226,7 +233,12 @@ call s:HL('NonText', 'window', '', 'none')
 call s:HL('DiffAdd',     'diff_green', 'background_light', 'bold')
 call s:HL('DiffDelete',  'diff_red',   'background_light', '')
 call s:HL('DiffChange',  'foreground', 'dblue',            '')
-call s:HL('DiffText',    'dblue',      'diff_change',      'bold')
+"call s:HL('DiffText',    'dblue',      'diff_change',      'bold')
+call s:HL('DiffText',    'lilac',  'diff_change',      'bold')
+
+" experimenting
+"call s:HL('DiffChange',  'foreground', 'dblue',            '')
+"call s:HL('DiffText',    'white_lilac','dblue',      'bold')
 
 call s:HL('DiffAdded',   'diff_green', '',                 'bold')
 call s:HL('DiffRemoved', 'diff_red',   '',                 '')
@@ -235,6 +247,7 @@ call s:HL('DiffChanged', 'foreground', 'dblue',            '')
 " --> Syntax
 " start simple
 call s:HL('Special', 'special', '', 'none')
+" TODO: Tag
 "call s:HL('Delimiter', 'punct', '', '')
 call s:HL('ColibriInterpolationDelimiter', 'punct', '', '')
 
@@ -322,9 +335,7 @@ call s:HL("javascriptObjectLabel",        'punct',   '', '')
 "call s:HL('javascriptEndColons', 'foreground',  '', '')
 "call s:HL('typescriptEndColons', 'foreground',  '', '')
 "
-" For pangloss's highlighting (make 'var' and 'function' cyan like they used to be)
-" This should give us close to what we had before pangloss!
-
+" For pangloss's highlighting
 hi link jsStorageClass Identifier
 hi link jsFunction Function
 hi link jsFuncName Identifier
