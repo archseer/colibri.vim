@@ -191,7 +191,9 @@ call s:HL("CursorLine",   '',           'window',          "none")
 call s:HL("CursorColumn", '',           'window',          "none")
 call s:HL("ColorColumn",  '',           'window',          "none")
 
-" TODO: Tabline
+call s:HL("TabLine",      '',           'bg3',             '')
+call s:HL("TabLineFill",  'bg3',        '',                '')
+call s:HL("TabLineSel",   'fg2',        'bg1',             '')
 
 " - Gutter
 call s:HL("LineNr",     'linenr',  '',                 '')
