@@ -2,19 +2,17 @@
 " Author: Blaž Hrastnik
 "
 " Note:
-
-" Bootstrap:
+"
+" Todo: Adjustable contrast?
 
 hi clear
 if exists("syntax_on") | syntax reset | endif
-set background=dark
 let s:is_dark=(&background == 'dark')
 let g:colors_name = "colibri"
 
 let s:colibri = {}
 
 " foreground #a4a0e8 (non active window) # play with complements, #9FF28F could be hsl(143.3, 61%, 76.9%) (complement derived from primary), hsl(343.3, 61%, 76.9%)
-" #5a5977 neutral window tone
 
 " base shades
 let s:colibri.white     = ["#FFFFFF", 231]
@@ -36,6 +34,9 @@ let s:colibri.almond    = ["#ECCDBA", 223]
 let s:colibri.chamois   = ["#E8DCA0", 187]
 let s:colibri.honey     = ["#EFBA5D", 215] " alt: saturation is closer #DDB56F
 
+" selection
+let s:colibri.cedar     = ["#802F00", 88]
+
 if s:is_dark
   let s:colibri.bg1 = s:colibri.revolver
   let s:colibri.bg2 = s:colibri.midnight
@@ -45,19 +46,40 @@ if s:is_dark
   let s:colibri.fg3 = s:colibri.silver
   let s:colibri.fg4 = s:colibri.sirocco
 else
-  let s:colibri.bg1 = s:colibri.bossanova
+  " it seems that +10% saturation -10% lightness works for light colors
+  " mint: ~60% sat, 55% lightness
+  " comet: +10% lightness
+  " midnight: hsl(275.7, 18.2%, 50%) -20% sat? + 20% lightness
+  " silver: #aaa (from #ccc)
+  "
+  " white lilac is lilac +10% sat + 24% lightness, we could derive almond bg too HSL(22.8, 76.8%, 96.7%)
+  let s:colibri.comet    = ["#716f94", 0]
+  let s:colibri.midnight = ["#6a5379", 0] " one step
+  let s:colibri.midnight = ["#846897", 0] " two steps
+  " white
+  let s:colibri.comet    = s:colibri.silver " comet is only used for linenr, so override
+  let s:colibri.silver   = ["#aaaaaa", 0]
+  " sirocco
+  let s:colibri.lilac    = ["#c590eb", 0]
+  let s:colibri.lavender = ["#938fdb", 0]
+  let s:colibri.mint     = ["#60d14a", 0]
+  let s:colibri.almond   = ["#e8ae8b", 0]
+  let s:colibri.chamois  = ["#e7d46f", 0]
+
+  " set some shades
+  let s:colibri.bg1 = s:colibri.silver
   let s:colibri.bg2 = s:colibri.white_lilac
   let s:colibri.bg3 = s:colibri.white
-  let s:colibri.fg1 = s:colibri.chamois
-  let s:colibri.fg2 = s:colibri.comet
-  let s:colibri.fg3 = s:colibri.lavender
+  let s:colibri.fg1 = s:colibri.lavender
+  let s:colibri.fg2 = s:colibri.midnight
+  let s:colibri.fg3 = s:colibri.sirocco
   let s:colibri.fg4 = s:colibri.silver
 
   " flip the colors!
-  let s:colibri.almond = s:colibri.lavender
-  let s:colibri.chamois = s:colibri.lilac
+  "let s:colibri.almond = s:colibri.lavender
+  "let s:colibri.chamois = s:colibri.lilac
 
-  let s:colibri.mint = ["#83DA74", 0]
+  "let s:colibri.mint = ["#83DA74", 0]
 endif
 
 let s:colibri.foreground      = s:colibri.fg1
@@ -74,7 +96,7 @@ let s:colibri.active   = s:colibri.lilac
 let s:colibri.window   = s:colibri.background_light
 let s:colibri.linenr   = s:colibri.comet
 let s:colibri.highlight = ["#00CCCC", 44] " is like a blueish neon 00CCCC
-let s:colibri.highlight = ["#802F00", 88]
+let s:colibri.highlight = s:colibri.cedar
 
 " #D7F4A8?
 let s:colibri.error    = ["#f47868", 209]
