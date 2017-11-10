@@ -5,11 +5,13 @@
 "
 " Todo: Adjustable contrast?
 
+" Preamble: {{{
 hi clear
 if exists("syntax_on") | syntax reset | endif
 let s:is_dark=(&background == 'dark')
 let g:colors_name = "colibri"
-
+" }}}
+" Colors: {{{
 let s:colibri = {}
 
 " foreground #a4a0e8 (non active window) # play with complements, #9FF28F could be hsl(143.3, 61%, 76.9%) (complement derived from primary), hsl(343.3, 61%, 76.9%)
@@ -86,6 +88,7 @@ endif
 let s:colibri.foreground      = s:colibri.fg1
 let s:colibri.background_dark = s:colibri.bg1
 let s:colibri.background      = s:colibri.bg2
+" dark contrast bg
 "let s:colibri.background     = ["#311D40", 53] " HSB with B at 25 (instead of 30)
 let s:colibri.background_light = s:colibri.bg3
 
@@ -96,13 +99,13 @@ let s:colibri.disabled = s:colibri.foreground
 let s:colibri.active   = s:colibri.lilac
 let s:colibri.window   = s:colibri.background_light
 let s:colibri.linenr   = s:colibri.comet
-let s:colibri.highlight = ["#00CCCC", 44] " is like a blueish neon 00CCCC
 let s:colibri.highlight = s:colibri.cedar
 
 " #D7F4A8?
 let s:colibri.error    = ["#f47868", 209]
 let s:colibri.warning  = ["#ffcd1c", 220]
 
+let s:colibri.comment  = s:colibri.fg4
 let s:colibri.builtin  = s:colibri.fg2
 let s:colibri.string   = s:colibri.fg3
 let s:colibri.proper   = s:colibri.fg2
@@ -112,7 +115,6 @@ let s:colibri.func     = s:colibri.fg2
 let s:colibri.punct    = s:colibri.lilac
 "let s:colibri.keyword  = ["#77B56B", 107]
 let s:colibri.keyword  = s:colibri.almond
-let s:colibri.comment  = s:colibri.fg4
 let s:colibri.number   = s:colibri.chamois
 
 let s:colibri.special  = s:colibri.honey
@@ -120,6 +122,7 @@ let s:colibri.special  = s:colibri.honey
 " Diff colors
 let s:colibri.diff_green  = ["#35BF86", 1]
 let s:colibri.diff_red    = ["#F22C86", 1]
+"let s:colibri.error    = s:colibri.diff_red " darken & consolidate the red on errors?
 if s:is_dark
   let s:colibri.diff_change = ["#69A0F3", 1]
   let s:colibri.diff_change = ["#6F44F0", 1]
@@ -127,7 +130,7 @@ if s:is_dark
 else
   "swap
   let s:colibri.dblue = ["#6F44F0", 1]
-  let s:colibri.diff_change       = ["#3B0FBF", 1] " 2CD5F2
+  let s:colibri.diff_change = ["#3B0FBF", 1] " 2CD5F2
 endif
 " }}}
 " Helpers: {{{
@@ -176,7 +179,9 @@ function! s:HL(group, fg, ...)
 
   execute highlightString
 endfunction
+" }}}
 
+"
 call s:HL("Normal",       'foreground', 'background',      "none")
 
 call s:HL('VertSplit',    'window',     'window',          '')
@@ -229,9 +234,6 @@ call s:HL('PmenuThumb', '',           'active')
 " Tildes below buffer
 call s:HL('NonText', 'window', '', 'none')
 
-" Special keys, e.g. some of the chars in 'listchars'. See ':h listchars'.
-" TODO: SpecialKey
-
 " - Diffs
 call s:HL('DiffAdd',     'diff_green', 'background_light', 'bold')
 call s:HL('DiffDelete',  'diff_red',   'background_light', '')
@@ -251,8 +253,10 @@ call s:HL('DiffChanged', 'foreground', 'dblue',            '')
 " start simple
 call s:HL('Special', 'special', '', 'none')
 " TODO: Tag
-"call s:HL('Delimiter', 'punct', '', '')
+call s:HL('Delimiter', 'punct', '', '') " hmm
 call s:HL('ColibriInterpolationDelimiter', 'punct', '', '')
+" Special keys, e.g. some of the chars in 'listchars'. See ':h listchars'.
+" TODO: SpecialKey
 
 " next up, comments
 call s:HL("Comment",        'comment', '',       '')
@@ -302,7 +306,7 @@ call s:HL("Type",        'proper',   '', '')
 call s:HL("Structure",   'proper',   '', '')
 " Typedef
 
-" --> Language specifics
+" --> Filetype specific
 
 " Ruby
 "call s:HL("rubySymbol", 'punct', '', '')
@@ -328,27 +332,27 @@ call s:HL("htmlArg",                      'func',    '', '')
 call s:HL("htmlH1",                       'punct',   '', '')
 
 " YAJS
-hi link javascriptImport Keyword
-hi link javascriptExport Keywor
+hi! link javascriptImport Keyword
+hi! link javascriptExport Keyword
 call s:HL("javascriptIdentifier",         'proper',  '', '')
 call s:HL("javascriptIdentifierName",     'proper',  '', '')
 call s:HL("javascriptObjectLabel",        'punct',   '', '')
-" javascriptBraces
-" typescriptBraces
-"call s:HL('javascriptEndColons', 'foreground',  '', '')
-"call s:HL('typescriptEndColons', 'foreground',  '', '')
+" hi! link javascriptBraces Delimiter
+" hi! link typescriptBraces Delimiter
+" hi! link javascriptEndColons Delimiter
+" hi! link typescriptEndColons Delimiter
 "
 " For pangloss's highlighting
-hi link jsStorageClass Identifier
-hi link jsFunction Function
-hi link jsFuncName Identifier
-hi link jsFuncParens Normal
-hi link Noise Identifier
+hi! link jsStorageClass Identifier
+hi! link jsFunction Function
+hi! link jsFuncName Identifier
+hi! link jsFuncParens Normal
+hi! link Noise Identifier
 
 " YAML
 
 " CSS
-hi link cssVendor cssDefinition
+hi! link cssVendor cssDefinition
 call s:HL("cssAttrComma",                 'punct',   '', '')
 
 " --> Plugins
@@ -361,15 +365,17 @@ call s:HL('ColibriDeleteSign', 'diff_red',    'sign_column')
 call s:HL('ALEWarningSign', 'warning', 'sign_column')
 call s:HL('ALEErrorSign',   'error',   'sign_column')
 " ALEInfoSign
-hi link SyntasticErrorSign AleErrorSign
-hi link SyntasticWarningSign AleWarningSign
+hi! link SyntasticErrorSign AleErrorSign
+hi! link SyntasticWarningSign AleWarningSign
 
 "vim-gitgutter
-hi link GitGutterAdd ColibriAddSign
-hi link GitGutterChange ColibriChangeSign
-hi link GitGutterDelete ColibriDeleteSign
-hi link GitGutterChangeDelete ColibriChangeSign
+hi! link GitGutterAdd ColibriAddSign
+hi! link GitGutterChange ColibriChangeSign
+hi! link GitGutterDelete ColibriDeleteSign
+hi! link GitGutterChangeDelete ColibriChangeSign
 " vim-signify
-hi link SignifyAdd ColibriAddSign
-hi link SignifyChange ColibriChangeSign
-hi link SignifyDelete ColibriDeleteSign
+hi! link SignifyAdd ColibriAddSign
+hi! link SignifyChange ColibriChangeSign
+hi! link SignifyDelete ColibriDeleteSign
+
+" vi: foldmethod=marker
