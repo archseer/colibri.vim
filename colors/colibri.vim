@@ -233,6 +233,9 @@ call s:HL('PmenuThumb', '',           'active')
 
 " Tildes below buffer
 call s:HL('NonText', 'window', '', 'none')
+let s:colibri.neon = ["#2CF2F1", 0] " rotated diff_red hue until cyan
+call s:HL('SpecialKey', 'neon', '', 'none')
+" neovim: Whitespace
 
 " - Diffs
 call s:HL('DiffAdd',     'diff_green', 'background_light', 'bold')
@@ -256,7 +259,6 @@ call s:HL('Special', 'special', '', 'none')
 call s:HL('Delimiter', 'punct', '', '') " hmm
 call s:HL('ColibriInterpolationDelimiter', 'punct', '', '')
 " Special keys, e.g. some of the chars in 'listchars'. See ':h listchars'.
-" TODO: SpecialKey
 
 " next up, comments
 call s:HL("Comment",        'comment', '',       '')
