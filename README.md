@@ -50,15 +50,19 @@ When you have the plugin installed, you can set it in your vimrc:
 ###### For 24 Bit Terminals
 ```VimL
 set termguicolors
+set background=dark
 colorscheme colibri
 ```
 
 ###### For GUI
 ```VimL
+set background=dark
 colorscheme colibri
 ```
 
 There is some support for a 256 color version, but the colors are much cruder.
+There is an experimental light version of the scheme, `set background=light` to
+test it out. Feel free to report your feedback at https://github.com/archSeer/colibri.vim/issues/2 .
 
 ## Contributing
 
