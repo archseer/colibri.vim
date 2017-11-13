@@ -220,6 +220,7 @@ call s:HL('StatusLineNC', 'background_dark', 'disabled',         '')
 " Directories (netrw, etc.)
 call s:HL('Directory',  'keyword',    '',     'bold')
 
+" Some HTML tags (<title>, some <h*>s)
 call s:HL('Title',      'foreground', '',     'bold')
 
 call s:HL('ErrorMsg',   'error',      'none', 'bold')
@@ -247,7 +248,6 @@ call s:HL('DiffDelete',  'diff_red',   'background_light', '')
 call s:HL('DiffChange',  'foreground', 'dblue',            '')
 "call s:HL('DiffText',    'dblue',      'diff_change',      'bold')
 call s:HL('DiffText',    'lilac',  'diff_change',      'bold')
-
 " experimenting
 "call s:HL('DiffChange',  'foreground', 'dblue',            '')
 "call s:HL('DiffText',    'white_lilac','dblue',      'bold')
@@ -267,8 +267,8 @@ call s:HL('ColibriInterpolationDelimiter', 'punct', '', '')
 " next up, comments
 call s:HL('Comment',        'comment', '',       '')
 call s:HL('SpecialComment', 'comment', '',       'reverse')
-call s:HL('Todo',           'warning', 'window', 'italic')
-call s:HL('Error',          'error',   'window')
+call s:HL('Todo',           'warning', 'background', 'italic')
+call s:HL('Error',          'error',   'background')
 
 " -> Keywords
 " generic statement
@@ -282,9 +282,7 @@ call s:HL('Function',    'func',     '', '')
 
 " Preprocessor
 call s:HL('PreProc',     'punct',    '', '')
-" Include
 call s:HL('Define',      'keyword',  '', '')
-" Macro, PreCondit
 
 " Constants
 call s:HL('Constant',    'constant', '', '')
