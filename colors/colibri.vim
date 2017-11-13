@@ -184,7 +184,7 @@ endfunction
 " }}}
 
 "
-call s:HL("Normal",       'foreground', 'background',      "none")
+call s:HL('Normal',       'foreground', 'background',      'none')
 
 call s:HL('VertSplit',    'window',     'window',          '')
 
@@ -194,17 +194,17 @@ call s:HL('Visual',       '',           'highlight',       'none')
 call s:HL('Search',       'warning',    'background_dark', 'inverse')
 call s:HL('WildMenu',     'active',     'background',      'inverse')
 
-call s:HL("CursorLine",   '',           'window',          "none")
-call s:HL("CursorColumn", '',           'window',          "none")
-call s:HL("ColorColumn",  '',           'window',          "none")
+call s:HL('CursorLine',   '',           'window',          'none')
+call s:HL('CursorColumn', '',           'window',          'none')
+call s:HL('ColorColumn',  '',           'window',          'none')
 
-call s:HL("TabLine",      '',           'bg3',             '')
-call s:HL("TabLineFill",  'bg3',        '',                '')
-call s:HL("TabLineSel",   'fg2',        'bg1',             '')
+call s:HL('TabLine',      '',           'bg3',             '')
+call s:HL('TabLineFill',  'bg3',        '',                '')
+call s:HL('TabLineSel',   'fg2',        'bg1',             '')
 
 " - Gutter
-call s:HL("LineNr",     'linenr',  '',                 '')
-call s:HL("CursorLineNr",'almond', '',                 '')
+call s:HL('LineNr',     'linenr',  '',                 '')
+call s:HL('CursorLineNr','almond', '',                 '')
 call s:HL('SignColumn', 'active',  'sign_column',      'none')
 call s:HL('FoldColumn', 'active',  'window',           'none')
 call s:HL('Folded',     'comment', 'background_light', 'none')
@@ -212,13 +212,13 @@ call s:HL('Folded',     'comment', 'background_light', 'none')
 call s:HL('MatchParen',   'background_light', 'honey', '')
 "call s:HL('MatchParen',   'background_light', 'lavender', '')
 
-call s:HL("StatusLine",   'background_dark', 'active',           '')
-call s:HL("StatusLineNC", 'background_dark', 'disabled',         '')
+call s:HL('StatusLine',   'background_dark', 'active',           '')
+call s:HL('StatusLineNC', 'background_dark', 'disabled',         '')
 
 " Directories (netrw, etc.)
-call s:HL("Directory",  'keyword',    '',     "bold")
+call s:HL('Directory',  'keyword',    '',     'bold')
 
-call s:HL("Title",      'foreground', '',     "bold")
+call s:HL('Title',      'foreground', '',     'bold')
 
 call s:HL('ErrorMsg',   'error',      'none', 'bold')
 call s:HL('WarningMsg', 'warning',    'none')
@@ -263,51 +263,51 @@ call s:HL('ColibriInterpolationDelimiter', 'punct', '', '')
 " Special keys, e.g. some of the chars in 'listchars'. See ':h listchars'.
 
 " next up, comments
-call s:HL("Comment",        'comment', '',       '')
-call s:HL("SpecialComment", 'comment', '',       'reverse')
-call s:HL("Todo",           'warning', "window", "italic")
+call s:HL('Comment',        'comment', '',       '')
+call s:HL('SpecialComment', 'comment', '',       'reverse')
+call s:HL('Todo',           'warning', 'window', 'italic')
 call s:HL('Error',          'error',   'window')
 
 " -> Keywords
 " generic statement
-call s:HL("Statement",   'keyword',  '', '')
+call s:HL('Statement',   'keyword',  '', '')
 " if, then, else, endif, switch, etc.
-call s:HL("Conditional", 'keyword',  '', '')
+call s:HL('Conditional', 'keyword',  '', '')
 " sizeof, "+", "*", etc.
-call s:HL("Operator",    'punct',    '', '')
+call s:HL('Operator',    'punct',    '', '')
 " Repeat (for, do, while, etc.)
-call s:HL("Repeat",      'keyword',  '', '')
+call s:HL('Repeat',      'keyword',  '', '')
 " try, catch, throw
 " Exception
 " any other keyword
-call s:HL("Keyword",     'keyword',  '', '')
+call s:HL('Keyword',     'keyword',  '', '')
 
 " Functions and variable declarations
-call s:HL("Identifier",  'builtin',  '', '')
-call s:HL("Function",    'func',     '', '')
+call s:HL('Identifier',  'builtin',  '', '')
+call s:HL('Function',    'func',     '', '')
 
 " Preprocessor
-call s:HL("PreProc",     'punct',    '', '')
+call s:HL('PreProc',     'punct',    '', '')
 " Include
-call s:HL("Define",      'keyword',  '', '')
+call s:HL('Define',      'keyword',  '', '')
 " Macro, PreCondit
 
 " Constants
-call s:HL("Constant",    'constant', '', '')
+call s:HL('Constant',    'constant', '', '')
 " character constant: 'c', '/n'
 " Character
-call s:HL("Boolean",     'bool',     '', '')
-call s:HL("Number",      'number',   '', '')
-call s:HL("Float",       'number',   '', '')
-call s:HL("String",      'string',   '', '')
+call s:HL('Boolean',     'bool',     '', '')
+call s:HL('Number',      'number',   '', '')
+call s:HL('Float',       'number',   '', '')
+call s:HL('String',      'string',   '', '')
 
 " --> Types
 " generic
-call s:HL("Type",        'proper',   '', '')
+call s:HL('Type',        'proper',   '', '')
 " static, register, volatile, etc
 " StorageClass
 " struct, union, enum, etc.
-call s:HL("Structure",   'proper',   '', '')
+call s:HL('Structure',   'proper',   '', '')
 " Typedef
 
 " --> Filetype specific
@@ -315,32 +315,32 @@ call s:HL("Structure",   'proper',   '', '')
 " Ruby
 "call s:HL("rubySymbol", 'punct', '', '')
 " apparently not the same as constant? (module/class name)
-call s:HL("rubyConstant",                 'proper',  '', '')
+call s:HL('rubyConstant',                 'proper',  '', '')
 hi link rubyInterpolationDelimiter ColibriInterpolationDelimiter
-call s:HL("rubyStringDelimiter",          'string',  '', 'italic')
-call s:HL("rubyIdentifier",               'proper',  '', '')
+call s:HL('rubyStringDelimiter',          'string',  '', 'italic')
+call s:HL('rubyIdentifier',               'proper',  '', '')
 
-call s:HL("rubyRailsMethod",              'proper',  '', '')
+call s:HL('rubyRailsMethod',              'proper',  '', '')
 
 " Elixir
 call s:HL('elixirStringDelimiter',        'string',  '', 'italic')
 hi link elixirInterpolationDelimiter ColibriInterpolationDelimiter
 
 " HTML
-call s:HL("htmlTag",                      'keyword', '', '')
-call s:HL("htmlEndTag",                   'keyword', '', '')
-call s:HL("htmlTagName",                  'keyword', '', '')
-call s:HL("htmlArg",                      'func',    '', '')
+call s:HL('htmlTag',                      'keyword', '', '')
+call s:HL('htmlEndTag',                   'keyword', '', '')
+call s:HL('htmlTagName',                  'keyword', '', '')
+call s:HL('htmlArg',                      'func',    '', '')
 
 " Markdown
-call s:HL("htmlH1",                       'punct',   '', '')
+call s:HL('htmlH1',                       'punct',   '', '')
 
 " YAJS
 hi! link javascriptImport Keyword
 hi! link javascriptExport Keyword
-call s:HL("javascriptIdentifier",         'proper',  '', '')
-call s:HL("javascriptIdentifierName",     'proper',  '', '')
-call s:HL("javascriptObjectLabel",        'punct',   '', '')
+call s:HL('javascriptIdentifier',         'proper',  '', '')
+call s:HL('javascriptIdentifierName',     'proper',  '', '')
+call s:HL('javascriptObjectLabel',        'punct',   '', '')
 " hi! link javascriptBraces Delimiter
 " hi! link typescriptBraces Delimiter
 " hi! link javascriptEndColons Delimiter
