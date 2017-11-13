@@ -70,6 +70,8 @@ else
   let s:colibri.mint     = ["#6bc05b", 0]
   let s:colibri.almond   = ["#e8ae8b", 0]
   let s:colibri.chamois  = ["#e9d77c", 0]
+  let s:colibri.chamois  = ["#d4c57d", 0] " muted so it's easier to read
+  let s:colibri.chamois  = ["#d7c25b", 0] " even more muted so it's easier to read
 
   " set some shades
   let s:colibri.bg1 = s:colibri.white
