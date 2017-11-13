@@ -19,6 +19,8 @@ let s:colibri = {}
 " base shades
 let s:colibri.white     = ["#FFFFFF", 231]
 let s:colibri.white_lilac  = ["#f3f2fc", 0] "lilac at lightness 97% hsl(243.3, 61%, 97%)
+"let s:colibri.white_lilac  = ["#FAF3EE", 0] " white_almond
+"let s:colibri.white_lilac  = ["#FAF9F4", 0] " white_chamois
 let s:colibri.white_lilac2 = ["#ebeafa", 0] "lilac at lightness 95% hsl(243.3, 61%, 95%)
 let s:colibri.lilac     = ["#dbbfef", 183]
 let s:colibri.lavender  = ["#a4a0e8", 146]
@@ -65,9 +67,9 @@ else
   " sirocco
   let s:colibri.lilac    = ["#c590eb", 0]
   let s:colibri.lavender = ["#938fdb", 0]
-  let s:colibri.mint     = ["#60d14a", 0]
+  let s:colibri.mint     = ["#6bc05b", 0]
   let s:colibri.almond   = ["#e8ae8b", 0]
-  let s:colibri.chamois  = ["#e7d46f", 0]
+  let s:colibri.chamois  = ["#e9d77c", 0]
 
   " set some shades
   let s:colibri.bg1 = s:colibri.white
