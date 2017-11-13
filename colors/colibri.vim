@@ -273,16 +273,8 @@ call s:HL('Error',          'error',   'window')
 " -> Keywords
 " generic statement
 call s:HL('Statement',   'keyword',  '', '')
-" if, then, else, endif, switch, etc.
-call s:HL('Conditional', 'keyword',  '', '')
 " sizeof, "+", "*", etc.
 call s:HL('Operator',    'punct',    '', '')
-" Repeat (for, do, while, etc.)
-call s:HL('Repeat',      'keyword',  '', '')
-" try, catch, throw
-" Exception
-" any other keyword
-call s:HL('Keyword',     'keyword',  '', '')
 
 " Functions and variable declarations
 call s:HL('Identifier',  'builtin',  '', '')
@@ -304,13 +296,7 @@ call s:HL('Float',       'number',   '', '')
 call s:HL('String',      'string',   '', '')
 
 " --> Types
-" generic
 call s:HL('Type',        'proper',   '', '')
-" static, register, volatile, etc
-" StorageClass
-" struct, union, enum, etc.
-call s:HL('Structure',   'proper',   '', '')
-" Typedef
 
 " --> Filetype specific
 
