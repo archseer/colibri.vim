@@ -211,7 +211,7 @@ call s:HL('SignColumn', 'active',  'sign_column',      'none')
 call s:HL('FoldColumn', 'active',  'window',           'none')
 call s:HL('Folded',     'comment', 'background_light', 'none')
 
-call s:HL('MatchParen',   'comet', 'silver', '')
+call s:HL('MatchParen',   '', 'background_light', 'bold')
 "call s:HL('MatchParen',   'background_light', 'lavender', '')
 
 call s:HL('StatusLine',   'background_dark', 'active',           '')
