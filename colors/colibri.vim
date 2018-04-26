@@ -241,7 +241,7 @@ call s:HL('NonText', 'window', '', 'none')
 let s:colibri.neon = ["#2CF2F1", 0] " rotated diff_red hue until cyan
 " Special keys, e.g. some of the chars in 'listchars'. See ':h listchars'.
 call s:HL('SpecialKey', 'neon', '', 'none')
-" neovim: Whitespace
+hi! link Whitespace SpecialKey
 
 " - Diffs
 call s:HL('DiffAdd',     'diff_green', 'background_light', 'bold')
