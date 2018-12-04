@@ -42,6 +42,8 @@ let s:colibri.honey     = ["#EFBA5D", 215] " alt: saturation is closer #DDB56F
 " selection
 let s:colibri.cedar     = ["#802F00", 88]
 
+let s:colibri.sinbad    = ["#7FB998", 156]
+
 if s:is_dark
   let s:colibri.bg1 = s:colibri.revolver
   let s:colibri.bg2 = s:colibri.midnight
@@ -266,7 +268,9 @@ call s:HL('ColibriInterpolationDelimiter', 'punct', '', '')
 
 " next up, comments
 call s:HL('Comment',        'comment', '',       '')
-call s:HL('SpecialComment', 'comment', '',       'reverse')
+"call s:HL('SpecialComment', 'comment', '',       'reverse')
+call s:HL('SpecialComment', 'sinbad', '',       '')
+call s:HL('SpecialComment', 'silver', '',       '')
 call s:HL('Todo',           'warning', 'background', 'italic')
 call s:HL('Error',          'error',   'background')
 
@@ -332,6 +336,10 @@ call s:HL('javascriptObjectLabel',        'punct',   '', '')
 " hi! link javascriptEndColons Delimiter
 " hi! link typescriptEndColons Delimiter
 "
+
+" PHP
+hi! link phpParent Normal
+
 " For pangloss's highlighting
 hi! link jsStorageClass Identifier
 hi! link jsFunction Function
