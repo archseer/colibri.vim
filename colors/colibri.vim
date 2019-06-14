@@ -190,10 +190,11 @@ endfunction
 "
 call s:HL('Normal',       'foreground', 'background',      'none')
 
-call s:HL('VertSplit',    'window',     'window',          '')
+call s:HL('VertSplit',    'window',     'window',          'none')
 
 "call s:HL('Cursor',       'background', 'cursor',    'none') " vCursor, iCursor
 call s:HL('Visual',       '',           'highlight',       'none')
+call s:HL('HighlightedyankRegion',       '',           'revolver',       'none')
 
 call s:HL('Search',       'warning',    'background_dark', 'inverse')
 call s:HL('WildMenu',     'active',     'background',      'inverse')
@@ -213,8 +214,9 @@ call s:HL('SignColumn', 'active',  'sign_column',      'none')
 call s:HL('FoldColumn', 'active',  'window',           'none')
 call s:HL('Folded',     'comment', 'background_light', 'none')
 
-call s:HL('MatchParen',   'background_light', 'honey', '')
+"call s:HL('MatchParen',   'background_light', 'honey', '')
 "call s:HL('MatchParen',   'background_light', 'lavender', '')
+call s:HL('MatchParen',   'foreground', 'background_dark', 'bold')
 
 call s:HL('StatusLine',   'background_dark', 'active',           '')
 call s:HL('StatusLineNC', 'background_dark', 'disabled',         '')
