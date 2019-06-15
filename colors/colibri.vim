@@ -216,7 +216,7 @@ call s:HL('Folded',     'comment', 'background_light', 'none')
 
 "call s:HL('MatchParen',   'background_light', 'honey', '')
 "call s:HL('MatchParen',   'background_light', 'lavender', '')
-call s:HL('MatchParen',   'foreground', 'background_dark', 'bold')
+call s:HL('MatchParen',   'white', 'background_dark', 'bold')
 
 call s:HL('StatusLine',   'background_dark', 'active',           '')
 call s:HL('StatusLineNC', 'background_dark', 'disabled',         '')
